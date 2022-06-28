@@ -12,9 +12,6 @@ export default function App() {
           profilePic: require("./assets/chibi.jpg"),
         }}
       />
-      {/* <View style={styles.container}>
-        <Image style={styles.tinyLogo} source={require("assets/chibi.jpg")} />
-      </View> */}
     </View>
   );
 }

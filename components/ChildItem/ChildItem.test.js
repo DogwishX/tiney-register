@@ -18,9 +18,27 @@ describe("Render elements", () => {
     expect(name).toBe("Danny");
   });
 
-  it("displays the child's picture", () => {
+  it("creates the child's picture element", () => {
     const { getByTestId } = TestComponent();
-    const imageSource = getByTestId("childImg");
-    expect(imageSource).toBeTruthy();
+    const img = getByTestId("childImg");
+    expect(img).toBeTruthy();
+  });
+
+  it("displays signed out status", () => {
+    const { getByTestId } = TestComponent();
+    const status = getByTestId("childStatus").props.children;
+    expect(status).toBe("Signed Out");
+  });
+
+  it("displays signed in status", () => {
+    const now = new Date(Date.now());
+    const { getByTestId } = TestComponent({
+      name: "Danny",
+      image: "@assets/chibi.jpg",
+      signedInAt: now,
+    });
+
+    const status = getByTestId("childStatus").props.children;
+    expect(status).toBe(`Signed in at ${now.getHours()}:${now.getMinutes()}`);
   });
 });
