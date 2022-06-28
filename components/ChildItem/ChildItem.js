@@ -1,9 +1,11 @@
+import { StyleSheet, Text, View, Button, Image } from "react-native";
+
 export default function ChildItem({ childDetails }) {
   const { name, image, signedIn } = childDetails;
-
   return (
     <View>
-      <Text testId="child__name">{name}</Text>
+      <Text>{name}</Text>
+      <Image testID="childImg" source={{ uri: image }}></Image>
     </View>
   );
 }
