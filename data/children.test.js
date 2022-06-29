@@ -12,9 +12,6 @@ describe("when user retrieves data from AsyncStorage", () => {
     expect(AsyncStorage.getItem).toBeCalledWith("children");
   });
 
-  it("should return undefined when data is not found", async () =>
-    expect(await getAllChildren()).toBe(undefined));
-
   it("should return an array of objects when data is found", async () => {
     await updateChildrenData();
     expect(await getAllChildren()).toStrictEqual(children);
