@@ -1,5 +1,9 @@
 import { StyleSheet, Text, View, Button, Image } from "react-native";
-import { useEffect } from "react/cjs/react.production.min";
+import {
+  getAllChildren,
+  updateChildrenData,
+  updateSignedInAt,
+} from "../../data/children";
 import useToggle from "../../hooks/useToggle";
 
 export default function ChildItem({ childDetails }) {
@@ -7,7 +11,8 @@ export default function ChildItem({ childDetails }) {
   const [isSignedIn, toggleIsSignedIn] = useToggle(Boolean(signedInAt));
 
   const timeString =
-    signedInAt && `${signedInAt.getHours()}:${signedInAt.getMinutes()}`;
+    signedInAt &&
+    `${addPad0(signedInAt.getHours())}:${addPad0(signedInAt.getMinutes())}`;
 
   return (
     <View>
@@ -25,10 +30,21 @@ export default function ChildItem({ childDetails }) {
     </View>
   );
 
-  function handlePress() {
-    if (isSignedIn) return toggleIsSignedIn();
+  async function handlePress() {
+    // Sign out
+    if (isSignedIn) {
+      toggleIsSignedIn();
+      await updateSignedInAt(name, true);
+      return;
+    }
 
+    // Sign in
     toggleIsSignedIn();
     childDetails.signedInAt = new Date(Date.now());
+    await updateSignedInAt(name);
   }
+}
+
+function addPad0(num) {
+  return String(num).padStart(2, "0");
 }

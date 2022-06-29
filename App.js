@@ -1,7 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
 import ChildItem from "./components/ChildItem/ChildItem";
-import DailyLog from "./views/DailyLog";
+import { createChildrenData, retrieveAllChildren } from "./data/children";
 
 export default function App() {
   return (

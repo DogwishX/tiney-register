@@ -1,5 +1,10 @@
 import ChildItem from "./ChildItem";
-import { render, fireEvent } from "@testing-library/react-native";
+import { render, fireEvent, waitFor } from "@testing-library/react-native";
+import {
+  getAllChildren,
+  updateChildrenData,
+  updateSignedInAt,
+} from "../../data/children";
 
 function TestComponent(details) {
   const { getByText, getByTestId, getByRole } = render(
@@ -45,7 +50,9 @@ describe("Render elements", () => {
 
     const statusText = getByTestId("childStatus").props.children;
     expect(statusText).toBe(
-      `Signed in at ${now.getHours()}:${now.getMinutes()}`
+      `Signed in at ${String(now.getHours()).padStart(2, "0")}:${String(
+        now.getMinutes()
+      ).padStart(2, "0")}`
     );
   });
 
@@ -67,8 +74,9 @@ describe("Render elements", () => {
   });
 });
 
+// Interactivity
 describe("When user taps button", () => {
-  test("displays 'Signed in at ...' when signed in", () => {
+  it("displays 'Signed in at ...' when signed in", () => {
     const { getByTestId } = TestComponent();
 
     const button = getByTestId("signInOutBtn");
@@ -78,11 +86,13 @@ describe("When user taps button", () => {
 
     const statusText = getByTestId("childStatus").props.children;
     expect(statusText).toBe(
-      `Signed in at ${now.getHours()}:${now.getMinutes()}`
+      `Signed in at ${String(now.getHours()).padStart(2, "0")}:${String(
+        now.getMinutes()
+      ).padStart(2, "0")}`
     );
   });
 
-  test("displays 'Signed out' when signed out", () => {
+  it("displays 'Signed out' when signed out", () => {
     const { getByTestId } = TestComponent({
       name: "Danny",
       profilePic: render("../../assets/chibi.jpg"),
