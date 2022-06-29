@@ -1,6 +1,8 @@
 import { StyleSheet, Text, SafeAreaView, StatusBar } from "react-native";
 import ChildrenList from "./components/ChildrenList/ChildrenList";
 import { NavigationContainer } from "@react-navigation/native";
+import DailyLog from "./views/DailyLog";
+import TabNavigation from "./components/TabNavigation/TabNavigation";
 
 const styles = StyleSheet.create({
   container: {
@@ -26,7 +28,7 @@ export default function App() {
       <StatusBar animated={true} backgroundColor="#151518" />
       <SafeAreaView style={styles.container}>
         <Text style={styles.header}>tiney register</Text>
-        <ChildrenList />
+        <TabNavigation style={styles.container} />
       </SafeAreaView>
     </NavigationContainer>
   );
