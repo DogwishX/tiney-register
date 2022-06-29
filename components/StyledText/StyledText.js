@@ -1,7 +1,11 @@
 import { StyleSheet, Text } from "react-native";
 
-export default function StyledText({ children, style }) {
-  return <Text style={[styles.text, style]}>{children}</Text>;
+export default function StyledText({ children, style, testID }) {
+  return (
+    <Text style={[styles.text, style]} testID={testID}>
+      {children}
+    </Text>
+  );
 }
 
 const styles = StyleSheet.create({
