@@ -1,30 +1,18 @@
 import { StyleSheet, Text, View, Button, Image } from "react-native";
-import ChildItem from "./components/ChildItem/ChildItem";
-import { createChildrenData, retrieveAllChildren } from "./data/children";
+import ChildrenList from "./components/ChildrenList/ChildrenList";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ChildItem
-        childDetails={{
-          name: "Danny",
-          profilePic: require("./assets/chibi.jpg"),
-        }}
-      />
+      <ChildrenList />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
-  },
-  tinyLogo: {
-    width: 50,
-    height: 50,
-  },
-  logo: {
-    width: 66,
-    height: 58,
+    flex: 1,
+    minHeight: "100%",
+    backgroundColor: "#0D0D0D",
   },
 });

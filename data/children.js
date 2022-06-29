@@ -11,9 +11,8 @@ const children = [
 
 async function getAllChildren() {
   const value = await AsyncStorage.getItem("children");
-  if (value !== null) {
-    return JSON.parse(value);
-  }
+  if (value === null) updateChildrenData();
+  return JSON.parse(value);
 }
 
 async function updateChildrenData(arr) {
