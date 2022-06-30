@@ -1,7 +1,9 @@
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { useState } from "react";
 import { StyleSheet } from "react-native";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import DailyLog from "../../views/DailyLog";
 import History from "../../views/History";
+import useToggle from "../../hooks/useToggle";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +14,6 @@ const styles = StyleSheet.create({
 });
 
 const Tab = createMaterialTopTabNavigator();
-const screenOptions = {};
 
 export default function TabNavigation() {
   return (
@@ -31,8 +32,8 @@ export default function TabNavigation() {
         },
       }}
     >
-      <Tab.Screen name="Daily Log" component={DailyLog} />
-      <Tab.Screen name="History" component={History} />
+      <Tab.Screen name="Daily Log" children={() => <DailyLog />} />
+      <Tab.Screen name="History" children={() => <History />} />
     </Tab.Navigator>
   );
 }

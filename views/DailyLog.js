@@ -1,6 +1,6 @@
-import { StyleSheet, ScrollView, View } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import { useEffect, useState } from "react";
-import { getAllChildren } from "../data/children";
+import { filterChildrenByDate } from "../data/children";
 import StyledText from "../components/StyledText/StyledText";
 import ChildrenList from "../components/ChildrenList/ChildrenList";
 
@@ -23,7 +23,10 @@ export default function DailyLog() {
   const [childrenList, setChildrenList] = useState([]);
 
   useEffect(() => {
-    (async () => setChildrenList(await getAllChildren()))();
+    (async () => {
+      const today = new Date(Date.now());
+      setChildrenList(await filterChildrenByDate(today, "expectedDate"));
+    })();
   }, []);
 
   return (

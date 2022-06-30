@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function ChildItem({ childDetails }) {
+export default function ChildItem({ childDetails, handleStorageUpdate }) {
   const { name, profilePic, signedInAt } = childDetails;
   const [isSignedIn, toggleIsSignedIn] = useToggle(Boolean(signedInAt));
   let timeString;

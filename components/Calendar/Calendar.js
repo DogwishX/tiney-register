@@ -3,7 +3,11 @@ import { View, StyleSheet } from "react-native";
 import CalendarHeader from "./CalendarHeader";
 import CalendarDays from "./CalendarDays";
 
-export default function Calendar({ selectedDate, setSelectedDate }) {
+export default function Calendar({
+  selectedDate,
+  setSelectedDate,
+  handleChange,
+}) {
   const [headerDate, setHeaderDate] = useState(selectedDate);
   return (
     <View>
@@ -11,7 +15,7 @@ export default function Calendar({ selectedDate, setSelectedDate }) {
       <CalendarDays
         selectedDate={selectedDate}
         headerDate={headerDate}
-        handleChange={setSelectedDate}
+        handleChange={handleChange}
       />
     </View>
   );
