@@ -1,8 +1,8 @@
 import { StyleSheet, Text } from "react-native";
 
-export default function StyledText({ children, style, testID }) {
+export default function StyledText({ children, style, testID, onPress }) {
   return (
-    <Text style={[styles.text, style]} testID={testID}>
+    <Text style={[styles.text, style]} testID={testID} onPress={onPress}>
       {children}
     </Text>
   );
