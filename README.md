@@ -3,6 +3,7 @@
 
 ### Background context
 One of the main features of the tiney is is the ‘register’, where providers can record the times that children attend their nursery each day. 
+
 ![image](https://user-images.githubusercontent.com/53922624/176782581-79f22d10-2729-4753-8425-19c951485787.png)
 ![image](https://user-images.githubusercontent.com/53922624/176782670-0a92e581-3496-4f36-a4d3-ff6e925a875e.png)
 
