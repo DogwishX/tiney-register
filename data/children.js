@@ -37,6 +37,18 @@ const children = [
     expectedDate: new Date("2022-06-29T03:24:00"),
     signedInAt: new Date("2022-06-29T03:24:00"),
   },
+  {
+    name: "Bobby",
+    profilePic: require("../assets/chibi3.jpg"),
+    expectedDate: new Date(Date.now()),
+    signedInAt: new Date("2022-07-01T03:24:00"),
+  },
+  {
+    name: "Samantha",
+    profilePic: require("../assets/chibi4.jpg"),
+    expectedDate: new Date(Date.now()),
+    signedInAt: new Date("2022-07-01T03:24:00"),
+  },
 ];
 const clearAsyncStorage = async () => {
   AsyncStorage.clear();
