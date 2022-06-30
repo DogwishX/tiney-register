@@ -40,13 +40,13 @@ const children = [
   {
     name: "Bobby",
     profilePic: require("../assets/chibi3.jpg"),
-    expectedDate: new Date(Date.now()),
+    expectedDate: new Date("2022-07-01T03:24:00"),
     signedInAt: new Date("2022-07-01T03:24:00"),
   },
   {
     name: "Samantha",
     profilePic: require("../assets/chibi4.jpg"),
-    expectedDate: new Date(Date.now()),
+    expectedDate: new Date("2022-07-01T03:24:00"),
     signedInAt: new Date("2022-07-01T03:24:00"),
   },
 ];
