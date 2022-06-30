@@ -1,5 +1,6 @@
 # tiney Engineering Challenge
 
+Mobile App created with React Native using the Expo CLI.
 
 ### Background context
 One of the main features of the tiney is is the ‘register’, where providers can record the times that children attend their nursery each day. 
@@ -37,6 +38,9 @@ This will start the local Expo server, to be used with the Android/iOS emulator.
 
 ![image](https://user-images.githubusercontent.com/53922624/176781617-77d93d9f-8197-48e5-98b9-9f427902d11e.png)
 
+
+#### Test Data
+Mock data in the History tab is present in today's data, 29th of June and 1st of July 2022.
 
 <!-- Issue references -->
 [i1]: https://github.com/DogwishX/tiney-register/issues/1
