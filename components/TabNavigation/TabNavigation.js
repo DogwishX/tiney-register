@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
 const Tab = createMaterialTopTabNavigator();
 
 export default function TabNavigation() {
+  const [childrenList, setChildrenList] = useState([]);
+
   return (
     <Tab.Navigator
       initialRouteName={"Daily Log"}
@@ -32,8 +34,19 @@ export default function TabNavigation() {
         },
       }}
     >
-      <Tab.Screen name="Daily Log" children={() => <DailyLog />} />
-      <Tab.Screen name="History" children={() => <History />} />
+      <Tab.Screen
+        name="Daily Log"
+        children={() => (
+          <DailyLog
+            childrenList={childrenList}
+            setChildrenList={setChildrenList}
+          />
+        )}
+      />
+      <Tab.Screen
+        name="History"
+        children={() => <History childrenList={childrenList} />}
+      />
     </Tab.Navigator>
   );
 }

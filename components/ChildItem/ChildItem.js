@@ -1,5 +1,5 @@
 import { StyleSheet, View, TouchableOpacity, Image, Text } from "react-native";
-import { updateSignedInAt } from "../../data/children";
+import { getAllChildren, updateSignedInAt } from "../../data/children";
 import useToggle from "../../hooks/useToggle";
 import StyledText from "../StyledText/StyledText";
 
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function ChildItem({ childDetails, handleStorageUpdate }) {
+export default function ChildItem({ childDetails, setChildrenList }) {
   const { name, profilePic, signedInAt } = childDetails;
   const [isSignedIn, toggleIsSignedIn] = useToggle(Boolean(signedInAt));
   let timeString;
@@ -113,6 +113,10 @@ export default function ChildItem({ childDetails, handleStorageUpdate }) {
     if (isSignedIn) {
       toggleIsSignedIn();
       await updateSignedInAt(name, true);
+
+      const newChildrenList = await getAllChildren();
+      setChildrenList(newChildrenList);
+
       return;
     }
 
@@ -120,6 +124,9 @@ export default function ChildItem({ childDetails, handleStorageUpdate }) {
     toggleIsSignedIn();
     childDetails.signedInAt = new Date(Date.now());
     await updateSignedInAt(name);
+
+    const newChildrenList = await getAllChildren();
+    setChildrenList(newChildrenList);
   }
 }
 

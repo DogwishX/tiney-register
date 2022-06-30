@@ -23,7 +23,7 @@ export default function CalendarHeader({ headerDate, setHeaderDate }) {
         name="chevron-left"
         size={24}
         color="white"
-        onPress={showNextMonth}
+        onPress={() => showNextMonth(false)}
       />
       <StyledText style={styles.headerText}>
         {headerDate.format("MMMM YYYY")}

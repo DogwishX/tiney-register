@@ -16,16 +16,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function History() {
+export default function History({ childrenList }) {
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const [childrenList, setChildrenList] = useState([]);
+  const [filteredChildrenList, setFilteredChildrenList] = useState([]);
 
   useEffect(() => {
-    (async () =>
-      setChildrenList(
-        await filterChildrenByDate(selectedDate, "signedInAt")
-      ))();
-  });
+    setFilteredChildrenList(
+      filterChildrenByDate(childrenList, selectedDate, "signedInAt")
+    );
+  }, [childrenList, selectedDate]);
 
   return (
     <View style={styles.container}>
@@ -34,11 +33,11 @@ export default function History() {
         setSelectedDate={setSelectedDate}
         handleChange={setSelectedDate}
       />
-      {childrenList.length === 0 ? (
+      {filteredChildrenList.length === 0 ? (
         <StyledText>No children signed in this day.</StyledText>
       ) : (
         <ScrollView>
-          <ChildrenList childrenList={childrenList} />
+          <ChildrenList childrenList={filteredChildrenList} />
         </ScrollView>
       )}
     </View>

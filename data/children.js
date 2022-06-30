@@ -66,9 +66,8 @@ async function updateSignedInAt(name, removeSignedInAt = false) {
   await updateChildrenData(childrenInStorage);
 }
 
-async function filterChildrenByDate(date, property) {
-  const childrenInStorage = await getAllChildren();
-  return childrenInStorage.filter(
+function filterChildrenByDate(childrenList, date, property) {
+  return childrenList.filter(
     (item) => item[property]?.slice(0, 10) === JSON.stringify(date).slice(1, 11)
   );
 }
