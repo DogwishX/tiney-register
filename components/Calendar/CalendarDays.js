@@ -3,7 +3,12 @@ import { View, Text, StyleSheet } from "react-native";
 import StyledText from "../StyledText/StyledText";
 
 const styles = StyleSheet.create({
-  container: { backgroundColor: "#181A1B", elevation: 5, width: "80%" },
+  container: {
+    backgroundColor: "#181A1B",
+    elevation: 5,
+    width: "80%",
+    marginBottom: 20,
+  },
   abbreviations: {
     flexDirection: "row",
     justifyContent: "space-around",

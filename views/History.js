@@ -29,7 +29,6 @@ export default function History() {
 
   return (
     <View style={styles.container}>
-      <StyledText>{selectedDate.format()}</StyledText>
       <Calendar
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}

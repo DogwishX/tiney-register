@@ -1,12 +1,39 @@
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import StyledText from "../StyledText/StyledText";
+import { Entypo } from "@expo/vector-icons";
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 10,
+  },
+  headerText: {
+    fontSize: 24,
+    paddingHorizontal: 10,
+    color: "white",
+  },
+});
 
 export default function CalendarHeader({ headerDate, setHeaderDate }) {
   return (
-    <View>
-      <StyledText onPress={() => showNextMonth(false)}>{"<"}</StyledText>
-      <StyledText>{headerDate.format("MMMM YYYY")}</StyledText>
-      <StyledText onPress={showNextMonth}>{">"}</StyledText>
+    <View style={styles.container}>
+      <Entypo
+        name="chevron-left"
+        size={24}
+        color="white"
+        onPress={showNextMonth}
+      />
+      <StyledText style={styles.headerText}>
+        {headerDate.format("MMMM YYYY")}
+      </StyledText>
+      <Entypo
+        name="chevron-right"
+        size={24}
+        color="white"
+        onPress={showNextMonth}
+      />
     </View>
   );
 
